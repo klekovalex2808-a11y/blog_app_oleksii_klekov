@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Blog App</title>
+</head>
+<body>
+    <h1>Blog App</h1>
+
+    <p><a href="{% url 'post_create' %}">+ Створити новий допис</a></p>
+
+    <hr>
+
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <small>{{ post.created_at }}</small>
+        <p>
+            <a href="{% url 'post_edit' post.pk %}">Редагувати</a> |
+            <a href="{% url 'post_delete' post.pk %}">Видалити</a>
+        </p>
+        <hr>
+    {% empty %}
+        <p>Поки немає дописів.</p>
+    {% endfor %}
+</body>
+</html>

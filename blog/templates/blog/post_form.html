@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% if mode == "edit" %}Редагування{% else %}Створення{% endif %} допису</title>
+</head>
+<body>
+    <h1>
+        {% if mode == "edit" %}
+            Редагування допису
+        {% else %}
+            Створення допису
+        {% endif %}
+    </h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зберегти</button>
+    </form>
+
+    <p><a href="{% url 'post_list' %}">Назад до списку</a></p>
+</body>
+</html>
