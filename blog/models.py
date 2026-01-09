@@ -1,4 +1,4 @@
-# Edited via GitHub
+# Edited via GitHub!
 from django.db import models
 
 class Post(models.Model):
